@@ -1,0 +1,11 @@
+<p>
+  this is parent component
+  </p>
+
+
+  <ul>
+      <li *ngFor='let name of names'>
+          <input type="button" value="{{name}}" (click) = "clickbtn(name)"/>
+          <div><app-child-component></app-child-component></div>
+           </li>
+  </ul>
