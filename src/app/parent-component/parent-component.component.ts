@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter,Output,ViewChild,Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-parent-component',
@@ -6,18 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-component.component.css']
 })
 export class ParentComponentComponent implements OnInit {
-  
+   @Output() parentchild: EventEmitter<any> = new EventEmitter();
 names : String [];
+sendToChild : string;
+
   constructor() { }
 
   ngOnInit() {
     this.names = ['suraj','pritesh','sunil']
   }
 
-
-  clickbtn(name)
+clickbtn(name)
   {
-    console.log(name);
+    this.sendToChild =name; 
+   
   }
+ 
+ change(event)
+ {
+   alert(event);
+ }
+
+  
 
 }
